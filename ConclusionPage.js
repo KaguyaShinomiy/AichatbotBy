@@ -362,9 +362,7 @@ function generateKeyInsights(history, stats, selectedCategory) {
     const userMessages = history.filter(msg => msg.role === 'user');
     const aiMessages = history.filter(msg => msg.role === 'assistant');
     
-    // Basic insights
-    insights.push(`คุณได้สนทนากับ AI เพื่อนเป็นเวลา ${calculateDuration(stats?.startTime)}`);
-    
+    // Basic insights (removed duration display)
     if (userMessages.length > aiMessages.length) {
         insights.push('คุณเป็นคนที่ชอบถามและแชร์ความคิดเห็น');
     } else {
