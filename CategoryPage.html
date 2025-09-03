@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>เลือกหัวข้อสนทนา - AI เพื่อน</title>
+    <link rel="stylesheet" href="CategoryPage.css">
+</head>
+<body>
+    <div class="category-container">
+        <div class="category-header">
+            <div class="icon home-icon" onclick="goHome()"></div>
+            <h1>เลือกหัวข้อสนทนา</h1>
+            <div class="icon back-icon" onclick="goBack()"></div>
+        </div>
+
+        <div class="category-main">
+            <div class="category-intro">
+                <div class="intro-text">
+                    <h2>เลือกหัวข้อที่คุณสนใจ</h2>
+                    <p>AI เพื่อนจะช่วยให้คำแนะนำและเป็นเพื่อนคุยในหัวข้อที่คุณเลือก</p>
+                </div>
+                <div class="mascot-preview">
+                    <img src="MascotS.png" alt="Mascot" class="mascot-preview-image">
+                    <div class="mascot-preview-glow"></div>
+                </div>
+            </div>
+
+            <div class="categories-grid">
+                <div class="category-card" onclick="selectCategory('การเงิน')" data-category="การเงิน">
+                    <div class="category-icon">💰</div>
+                    <h3>การเงิน</h3>
+                    <p>การจัดการเงิน การออม การลงทุน</p>
+                    <div class="category-glow"></div>
+                </div>
+
+                <div class="category-card" onclick="selectCategory('ชีวิต')" data-category="ชีวิต">
+                    <div class="category-icon">🌟</div>
+                    <h3>ชีวิต</h3>
+                    <p>การใช้ชีวิต การพัฒนาตัวเอง ความสุข</p>
+                    <div class="category-glow"></div>
+                </div>
+
+                <div class="category-card" onclick="selectCategory('ความรัก')" data-category="ความรัก">
+                    <div class="category-icon">❤️</div>
+                    <h3>ความรัก</h3>
+                    <p>คำแนะนำเรื่องความรัก การจัดการความสัมพันธ์</p>
+                    <div class="category-glow"></div>
+                </div>
+
+                <div class="category-card" onclick="selectCategory('ครอบครัว')" data-category="ครอบครัว">
+                    <div class="category-icon">👨‍👩‍👧‍👦</div>
+                    <h3>ครอบครัว</h3>
+                    <p>ความสัมพันธ์ในครอบครัว การสื่อสาร</p>
+                    <div class="category-glow"></div>
+                </div>
+
+                <div class="category-card" onclick="selectCategory('การศึกษา')" data-category="การศึกษา">
+                    <div class="category-icon">📚</div>
+                    <h3>การศึกษา</h3>
+                    <p>การเรียน การศึกษา การพัฒนาความรู้</p>
+                    <div class="category-glow"></div>
+                </div>
+
+                <div class="category-card" onclick="selectCategory('อาชีพ')" data-category="อาชีพ">
+                    <div class="category-icon">💼</div>
+                    <h3>อาชีพ</h3>
+                    <p>การพัฒนาอาชีพ การทำงาน การเลื่อนตำแหน่ง</p>
+                    <div class="category-glow"></div>
+                </div>
+
+                <div class="category-card" onclick="selectCategory('สุขภาพ')" data-category="สุขภาพ">
+                    <div class="category-icon">🏥</div>
+                    <h3>สุขภาพ</h3>
+                    <p>สุขภาพกาย สุขภาพจิต การออกกำลังกาย</p>
+                    <div class="category-glow"></div>
+                </div>
+
+                <div class="category-card" onclick="selectCategory('ธุรกิจ')" data-category="ธุรกิจ">
+                    <div class="category-icon">🏢</div>
+                    <h3>ธุรกิจ</h3>
+                    <p>การทำธุรกิจ การค้า การลงทุน</p>
+                    <div class="category-glow"></div>
+                </div>
+
+                <div class="category-card" onclick="selectCategory('อื่นๆ')" data-category="อื่นๆ">
+                    <div class="category-icon">💬</div>
+                    <h3>อื่นๆ</h3>
+                    <p>คุยทั่วไป เรื่องราวต่างๆ</p>
+                    <div class="category-glow"></div>
+                </div>
+            </div>
+
+            <div class="selected-category-info" id="selected-category-info" style="display: none;">
+                <div class="info-content">
+                    <h3 id="selected-category-title">หัวข้อที่เลือก</h3>
+                    <p id="selected-category-description">คำอธิบายหัวข้อ</p>
+                    <div class="category-tags" id="category-tags"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-navigation">
+            <button class="nav-btn back-btn" onclick="goBack()">
+                ← กลับไป
+            </button>
+            <button class="nav-btn start-chat-btn" id="start-chat-btn" onclick="startChat()" disabled>
+                เริ่มสนทนา →
+            </button>
+        </div>
+    </div>
+
+    <div class="floating-mascot">
+        <img src="Mascot.gif" alt="Mascot" class="floating-mascot-image">
+        <div class="floating-mascot-glow"></div>
+    </div>
+
+    <script src="CategoryPage.js"></script>
+</body>
+</html>
+
