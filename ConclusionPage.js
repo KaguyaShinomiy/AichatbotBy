@@ -112,9 +112,7 @@ function displayConversationStats(element, stats, history, chatData, selectedCat
         }
         
         if (stats.startTime) {
-            html += `<div class="stat-item">
-                <strong>ระยะเวลาการสนทนา:</strong> ${calculateDuration(stats.startTime)}
-            </div>`;
+            // Removed conversation duration display
         }
     }
     
