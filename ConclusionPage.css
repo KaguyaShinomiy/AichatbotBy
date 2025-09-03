@@ -10,6 +10,7 @@ body {
     background: linear-gradient(135deg, #fff0f6 0%, #ffe4ec 100%);
     min-height: 100vh;
     color: #333;
+    overflow-x: hidden;
 }
 
 .conclusion-container {
@@ -41,6 +42,7 @@ body {
     font-size: 24px;
     cursor: pointer;
     transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .home-icon:hover, .back-icon:hover {
@@ -54,6 +56,7 @@ body {
     font-weight: bold;
     text-align: center;
     flex-grow: 1;
+    margin: 0 15px;
 }
 
 /* Main Summary Card */
@@ -144,6 +147,8 @@ body {
     margin-bottom: 12px;
     padding: 8px 0;
     border-bottom: 1px solid #f0f0f0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .stat-item:last-child {
@@ -175,6 +180,8 @@ body {
     background: #fff0f6;
     border-radius: 8px;
     border-left: 4px solid #e75480;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .highlight-item strong {
@@ -208,6 +215,8 @@ body {
     border-radius: 8px;
     border-left: 4px solid #e75480;
     position: relative;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .recommendations-section li:before {
@@ -235,6 +244,8 @@ body {
     border-radius: 8px;
     border-left: 4px solid #e75480;
     position: relative;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .insights-section li:before {
@@ -258,12 +269,14 @@ body {
 
 .next-steps-section li {
     margin-bottom: 12px;
-    padding: 12px 15px;
+    padding: 12px 15px 12px 25px;
     background: #fff0f6;
     border-radius: 8px;
     border-left: 4px solid #e75480;
     position: relative;
     counter-increment: step-counter;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .next-steps-section li:before {
@@ -278,7 +291,6 @@ body {
     justify-content: center;
     font-size: 12px;
     font-weight: bold;
-    margin-right: 10px;
     position: absolute;
     left: -12px;
     top: 50%;
@@ -324,6 +336,7 @@ body {
     
     .conclusion-title {
         font-size: 24px;
+        margin: 0 10px;
     }
     
     .main-summary-card {
@@ -373,6 +386,7 @@ body {
         padding: 15px;
         border-radius: 10px;
         margin-bottom: 20px;
+        flex-wrap: wrap;
     }
     
     .home-icon, .back-icon {
@@ -383,6 +397,18 @@ body {
     
     .conclusion-title {
         font-size: 20px;
+        margin: 0 8px;
+        order: 2;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .home-icon {
+        order: 1;
+    }
+    
+    .back-icon {
+        order: 3;
     }
     
     .main-summary-card {
@@ -420,11 +446,94 @@ body {
         padding: 8px 10px;
     }
     
+    .next-steps-section li {
+        padding-left: 20px;
+    }
+    
     .next-steps-section li:before {
         width: 20px;
         height: 20px;
         font-size: 10px;
         left: -10px;
+    }
+    
+    .highlight-item {
+        padding: 6px 8px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .conclusion-container {
+        padding: 8px;
+    }
+    
+    .conclusion-header {
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .home-icon, .back-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+    
+    .conclusion-title {
+        font-size: 18px;
+        margin: 0 5px;
+    }
+    
+    .main-summary-card {
+        padding: 15px;
+        border-radius: 8px;
+    }
+    
+    .summary-content h2 {
+        font-size: 20px;
+    }
+    
+    .summary-content p {
+        font-size: 14px;
+    }
+    
+    .mascot-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .summary-card {
+        padding: 12px;
+        border-radius: 8px;
+    }
+    
+    .summary-card h3 {
+        font-size: 15px;
+    }
+    
+    .stat-item,
+    .recommendations-section li,
+    .insights-section li,
+    .next-steps-section li {
+        font-size: 13px;
+        padding: 6px 8px;
+    }
+    
+    .next-steps-section li {
+        padding-left: 18px;
+    }
+    
+    .next-steps-section li:before {
+        width: 18px;
+        height: 18px;
+        font-size: 9px;
+        left: -9px;
+    }
+    
+    .highlight-item {
+        padding: 5px 6px;
+        font-size: 13px;
     }
 }
 
@@ -456,5 +565,54 @@ body {
     
     .no-data-section {
         color: #e0e0e0;
+    }
+}
+
+/* Mobile view optimizations */
+.mobile-view .conclusion-container {
+    padding: 10px;
+}
+
+.mobile-view .conclusion-header {
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.mobile-view .main-summary-card {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.mobile-view .summary-card {
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.mobile-view .stat-item,
+.mobile-view .recommendations-section li,
+.mobile-view .insights-section li,
+.mobile-view .next-steps-section li {
+    font-size: 14px;
+    padding: 8px 10px;
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .summary-card:hover {
+        transform: none;
+    }
+    
+    .home-icon:hover, .back-icon:hover {
+        transform: none;
+    }
+    
+    .summary-card:active {
+        transform: scale(0.98);
+    }
+    
+    .home-icon:active, .back-icon:active {
+        background: rgba(255, 255, 255, 0.4);
+        transform: scale(0.95);
     }
 }

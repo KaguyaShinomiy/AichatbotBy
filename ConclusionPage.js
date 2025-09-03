@@ -610,5 +610,20 @@ function calculateDuration(startTime) {
 
 // Initialize page
 document.addEventListener('DOMContentLoaded', function() {
+    // Add mobile-specific optimizations
+    if (window.innerWidth <= 768) {
+        // Optimize for mobile devices
+        document.body.classList.add('mobile-view');
+    }
+    
+    // Handle orientation changes
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+            document.body.classList.add('mobile-view');
+        } else {
+            document.body.classList.remove('mobile-view');
+        }
+    });
+    
     loadConversationSummary();
 });
