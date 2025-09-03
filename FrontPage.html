@@ -16,6 +16,7 @@
        background: url('Background.png') no-repeat center center;
        background-size: cover;
        position: relative;
+       overflow-x: hidden;
      }
     
     .mascot-container {
@@ -39,6 +40,8 @@
       color: #333;
       margin-top: 20px;
       text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
     
     .button-container {
@@ -63,6 +66,10 @@
       cursor: pointer;
       transition: all 0.2s ease;
       box-shadow: 0 2px 8px rgba(231, 84, 128, 0.15);
+      min-width: 200px;
+      min-height: 50px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
     
     .quiz-btn:hover {
@@ -81,6 +88,10 @@
       cursor: pointer;
       transition: all 0.2s ease;
       box-shadow: 0 2px 8px rgba(156, 39, 176, 0.15);
+      min-width: 180px;
+      min-height: 45px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
     
     .category-btn:hover {
@@ -95,6 +106,50 @@
       color: #666;
       margin-top: 10px;
       text-align: center;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      max-width: 90vw;
+    }
+    
+    /* Mobile view optimizations */
+    .mobile-view .front-container {
+      padding: 20px;
+      min-height: 95vh;
+    }
+    
+    .mobile-view .mascot-container {
+      margin-bottom: 40px;
+    }
+    
+    .mobile-view .mascot-image {
+      width: 200px;
+      height: 200px;
+    }
+    
+    .mobile-view .mascot-title {
+      font-size: 1.8rem;
+      margin-top: 15px;
+    }
+    
+    .mobile-view .button-container {
+      gap: 20px;
+    }
+    
+    .mobile-view .quiz-btn {
+      font-size: 1.1rem;
+      padding: 12px 30px;
+      min-width: 180px;
+    }
+    
+    .mobile-view .category-btn {
+      font-size: 1rem;
+      padding: 10px 25px;
+      min-width: 160px;
+    }
+    
+    .mobile-view .mbti-status {
+      font-size: 0.9rem;
+      margin-top: 8px;
     }
     
     @media (max-width: 900px) {
@@ -249,6 +304,23 @@
         transform: scale(0.95);
       }
     }
+    
+    /* Better focus states for accessibility */
+    .quiz-btn:focus, .category-btn:focus {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+    
+    /* Prevent horizontal scrolling */
+    @media (max-width: 480px) {
+      body {
+        overflow-x: hidden;
+      }
+      
+      .front-container {
+        overflow-x: hidden;
+      }
+    }
   </style>
 </head>
 <body>
@@ -273,6 +345,20 @@
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Add mobile-specific optimizations
+      if (window.innerWidth <= 768) {
+        document.body.classList.add('mobile-view');
+      }
+      
+      // Handle orientation changes
+      window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+          document.body.classList.add('mobile-view');
+        } else {
+          document.body.classList.remove('mobile-view');
+        }
+      });
+      
       const quizBtn = document.getElementById('quiz-btn');
       const loadingOverlay = document.getElementById('loading-overlay');
       const mbtiStatus = document.getElementById('mbti-status');
