@@ -5,6 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>แบบทดสอบบุคลิกภาพ - ค้นพบตัวตนของคุณ</title>
     <link rel="stylesheet" href="QuizPage.css">
+    <style>
+        /* Just fix the cramping - add more spacing for mobile */
+        @media (max-width: 768px) {
+            .quiz-container {
+                margin: 10px;
+                min-height: 95vh;
+            }
+            
+            .quiz-header {
+                padding: 15px 20px;
+            }
+            
+            .quiz-main {
+                margin: 20px 20px 0 20px;
+                padding: 25px;
+            }
+            
+            .quiz-info {
+                padding: 15px;
+                margin-bottom: 25px;
+            }
+            
+            .question-container {
+                padding: 20px;
+                margin-bottom: 25px;
+            }
+            
+            .question-text {
+                font-size: 0.9rem;
+                line-height: 1.4;
+                margin-bottom: 20px;
+            }
+            
+            .scale-container {
+                gap: 12px;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            
+            .scale-options {
+                gap: 6px;
+                display: flex !important;
+                justify-content: space-between !important;
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 10px;
+            }
+            
+            .option-circle {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .scale-label {
+                font-size: 0.8rem;
+                white-space: nowrap;
+                text-align: center;
+            }
+            
+            .left-label {
+                position: absolute;
+                left: 10px;
+                bottom: 5px;
+            }
+            
+            .right-label {
+                position: absolute;
+                right: 10px;
+                bottom: 5px;
+            }
+            
+            .scale-options {
+                position: relative;
+            }
+            
+            .quiz-navigation {
+                margin: 20px 20px 20px 20px;
+                padding: 15px 20px;
+            }
+            
+            .nav-btn {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .quiz-container {
+                margin: 5px;
+            }
+            
+            .quiz-main {
+                margin: 15px 15px 0 15px;
+                padding: 20px;
+            }
+            
+            .question-text {
+                font-size: 0.8rem;
+                margin-bottom: 15px;
+            }
+            
+            .scale-container {
+                gap: 8px;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            
+            .scale-options {
+                gap: 4px;
+                display: flex !important;
+                justify-content: space-between !important;
+                width: 100%;
+                max-width: 250px;
+                margin-bottom: 8px;
+                position: relative;
+            }
+            
+            .option-circle {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .scale-label {
+                font-size: 0.7rem;
+                white-space: nowrap;
+                text-align: center;
+            }
+            
+            .left-label {
+                position: absolute;
+                left: 5px;
+                bottom: -10px;
+            }
+            
+            .right-label {
+                position: absolute;
+                right: 5px;
+                bottom: -10px;
+            }
+            
+            .quiz-navigation {
+                margin: 15px 15px 15px 15px;
+                padding: 12px 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="quiz-container">
@@ -80,8 +230,6 @@
     <div class="quiz-results" id="quiz-results" style="display: none;">
         <!-- Results will be dynamically populated by JavaScript -->
     </div>
-
-
 
     <script src="QuizPage.js"></script>
 </body>
