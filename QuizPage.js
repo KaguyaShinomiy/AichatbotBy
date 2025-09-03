@@ -289,6 +289,11 @@ function updateQuizDisplay() {
     
     // Update scale selection
     updateScaleSelection();
+    
+    // Re-add touch event listeners for mobile
+    if ('ontouchstart' in window) {
+        addTouchEventListeners();
+    }
 }
 
 // Update navigation buttons
@@ -556,22 +561,87 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // Add touch event listeners for better mobile interaction
+    if ('ontouchstart' in window) {
+        addTouchEventListeners();
+    }
+    
     initQuiz();
     initDarkMode();
     
     // Dark mode toggle event
-    document.getElementById('dark-mode-toggle').addEventListener('change', toggleDarkMode);
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('change', toggleDarkMode);
+    }
     
     // Close menu when clicking outside
     document.addEventListener('click', function(event) {
         const menuPopup = document.getElementById('menu-popup');
         const menuIcon = document.querySelector('.menu-icon');
         
-        if (!menuPopup.contains(event.target) && !menuIcon.contains(event.target)) {
+        if (menuPopup && menuIcon && !menuPopup.contains(event.target) && !menuIcon.contains(event.target)) {
             menuPopup.classList.remove('active');
         }
     });
 });
+
+// Add touch event listeners for mobile
+function addTouchEventListeners() {
+    const scaleOptions = document.querySelectorAll('.scale-option');
+    
+    scaleOptions.forEach((option, index) => {
+        option.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            this.style.transform = 'scale(1.1)';
+        });
+        
+        option.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            this.style.transform = '';
+            selectScaleOption(index);
+        });
+        
+        option.addEventListener('touchcancel', function(e) {
+            e.preventDefault();
+            this.style.transform = '';
+        });
+    });
+    
+    // Add touch feedback for navigation buttons
+    const navButtons = document.querySelectorAll('.nav-btn');
+    navButtons.forEach(button => {
+        button.addEventListener('touchstart', function(e) {
+            if (!this.disabled) {
+                this.style.transform = 'scale(0.95)';
+            }
+        });
+        
+        button.addEventListener('touchend', function(e) {
+            this.style.transform = '';
+        });
+        
+        button.addEventListener('touchcancel', function(e) {
+            this.style.transform = '';
+        });
+    });
+    
+    // Add touch feedback for icons
+    const icons = document.querySelectorAll('.icon');
+    icons.forEach(icon => {
+        icon.addEventListener('touchstart', function(e) {
+            this.style.transform = 'scale(0.95)';
+        });
+        
+        icon.addEventListener('touchend', function(e) {
+            this.style.transform = '';
+        });
+        
+        icon.addEventListener('touchcancel', function(e) {
+            this.style.transform = '';
+        });
+    });
+}
 
 // Keyboard navigation
 document.addEventListener('keydown', function(event) {
