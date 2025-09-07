@@ -45,6 +45,16 @@ body {
     flex-shrink: 0;
 }
 
+.home-icon::before {
+    content: '\2302';
+    font-size: 4.2rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: -6px;
+    color: #fff;
+}
+
 .home-icon:hover, .back-icon:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: scale(1.1);
@@ -395,6 +405,11 @@ body {
         font-size: 20px;
     }
     
+    .home-icon::before {
+        font-size: 3.2rem;
+        top: -4px;
+    }
+    
     .conclusion-title {
         font-size: 20px;
         margin: 0 8px;
@@ -480,6 +495,11 @@ body {
         font-size: 18px;
     }
     
+    .home-icon::before {
+        font-size: 2.4rem;
+        top: -2px;
+    }
+    
     .conclusion-title {
         font-size: 18px;
         margin: 0 5px;
@@ -534,6 +554,13 @@ body {
     .highlight-item {
         padding: 5px 6px;
         font-size: 13px;
+    }
+}
+
+@media (max-width: 360px) {
+    .home-icon::before {
+        font-size: 2rem;
+        top: -1px;
     }
 }
 
